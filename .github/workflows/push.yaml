@@ -16,4 +16,5 @@ jobs:
           against: 'https://github.com/${GITHUB_REPOSITORY}.git#branch=main,ref=HEAD~1'
       - uses: bufbuild/buf-push-action@v1
         with:
+          input: paymentapis
           buf_token: ${{ secrets.BUF_TOKEN }}
