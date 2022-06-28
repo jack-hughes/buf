@@ -11,8 +11,6 @@ enum PaymentProvider {
   PAYMENT_PROVIDER_STRIPE = 1;
   PAYMENT_PROVIDER_PAYPAL = 2;
   PAYMENT_PROVIDER_APPLE = 3;
-  // testing push
-  PAYMENT_PROVIDER_JACK = 4;
 }
 
 // Order represents a monetary order.
