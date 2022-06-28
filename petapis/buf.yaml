@@ -1,0 +1,11 @@
+version: v1
+name: buf.build/jack-hughes/petapis
+breaking:
+  use:
+    - FILE
+lint:
+  use:
+    - DEFAULT
+deps:
+  - buf.build/googleapis/googleapis
+  - buf.build/jack-hughes/paymentapis
