@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  build:
+  build-push-payments:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -12,9 +12,21 @@ jobs:
       - uses: bufbuild/buf-lint-action@v1
       - uses: bufbuild/buf-breaking-action@v1
         with:
-          # The 'main' branch of the GitHub repository that defines the module.
           against: 'https://github.com/${GITHUB_REPOSITORY}.git#branch=main,ref=HEAD~1'
       - uses: bufbuild/buf-push-action@v1
         with:
           input: paymentapis
+          buf_token: ${{ secrets.BUF_TOKEN }}
+  build-push-pets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: bufbuild/buf-setup-action@v1
+      - uses: bufbuild/buf-lint-action@v1
+      - uses: bufbuild/buf-breaking-action@v1
+        with:
+          against: 'https://github.com/${GITHUB_REPOSITORY}.git#branch=main,ref=HEAD~1'
+      - uses: bufbuild/buf-push-action@v1
+        with:
+          input: petapis
           buf_token: ${{ secrets.BUF_TOKEN }}
